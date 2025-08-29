@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select a Recipe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Search results for "{{ search_term }}"</h1>
+
+    {% if meals %}
+    <div class="ingredients-grid">
+        {% for meal in meals %}
+        <div class="ingredient-box">
+            <a href="{{ url_for('meal_detail', meal_id=meal.idMeal) }}">
+                <img src="{{ meal.strMealThumb }}" alt="{{ meal.strMeal }}" style="width:100%; border-radius:10px;">
+                <p>{{ meal.strMeal }}</p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>No recipes found.</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('index') }}">← Search again</a></p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MealMind</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1 class="app-title">🍽️ MealMind 🍴</h1>
+    <p class="app-sub">Search a dish. We’ll fetch the recipe and show nutrition for each ingredient.</p>
+
+    <form method="POST" class="card">
+      <label for="dish" class="m0">Dish name</label>
+      <div class="search-row mt8">
+        <input id="dish" class="input" type="text" name="dish" placeholder="e.g., Chicken Curry" required>
+        <button class="button" type="submit">Search</button>
+      </div>
+
+      {% if error %}
+      <p class="mt16">{{ error }}</p>
+      {% endif %}
+    </form>
+  </main>
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</html>
+
+

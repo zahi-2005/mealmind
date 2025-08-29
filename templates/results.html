@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriTrack Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1 class="m0">{{ recipe.strMeal }}</h1>
+      <p class="meta">Category: {{ recipe.strCategory }} • Area: {{ recipe.strArea }}</p>
+
+      <!-- Centered Recipe Image -->
+      <div class="recipe-image-container">
+        <img class="recipe-img" src="{{ recipe.strMealThumb }}" alt="{{ recipe.strMeal }}">
+      </div>
+
+      <!-- Ingredients in square boxes -->
+      <h2 class="section-title mt16">Ingredients</h2>
+      <div class="ingredients-grid">
+        {% for item in ingredients %}
+          <div class="ingredient-box">
+            <strong>{{ item.name }}</strong>
+            {% if item.measure %}
+              <p>{{ item.measure }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Nutrition Table above instructions -->
+      {% if ingredients and ingredients[0].nutrition is defined %}
+      <h2 class="section-title mt24">Nutrition (table view)</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Ingredient</th>
+            <th>Calories</th>
+            <th>Protein (g)</th>
+            <th>Fat (g)</th>
+            <th>Carbs (g)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in ingredients %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.nutrition.calories or "N/A" }}</td>
+            <td>{{ item.nutrition.protein or "N/A" }}</td>
+            <td>{{ item.nutrition.fat or "N/A" }}</td>
+            <td>{{ item.nutrition.carbs or "N/A" }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+
+      <!-- Instructions -->
+      <h2 class="section-title mt24">Instructions</h2>
+      <ol class="steps">
+        {% for step in recipe.strInstructions.split('. ') if step %}
+          <li>{{ step.strip() }}</li>
+        {% endfor %}
+      </ol>
+
+{% if recipe.strYoutube %}
+    <section class="video-section">
+        <h2>Watch Tutorial 🎥</h2>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/{{ recipe.strYoutube.split('=')[-1] }}" 
+                title="YouTube video tutorial for {{ recipe.strMeal }}" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+{% endif %}
+
+
+      <p class="mt24"><a href="{{ url_for('index') }}">← Search again</a></p>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+</body>
+</html>
