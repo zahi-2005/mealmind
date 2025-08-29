@@ -1,4 +1,4 @@
-/* ---------- Base ---------- */
+
 :root {
   --bg: #fafafa;
   --text: #1f2937;
@@ -29,7 +29,7 @@ html, body {
   font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
 }
 
-/* ---------- Layout ---------- */
+
 .container {
   max-width: 980px;
   margin: 0 auto;
@@ -43,7 +43,7 @@ html, body {
   padding: 20px;
 }
 
-/* ---------- Header ---------- */
+
 .app-title {
   margin: 0 0 12px;
   letter-spacing: 0.2px;
@@ -55,7 +55,7 @@ html, body {
   font-size: 0.95rem;
 }
 
-/* ---------- Form ---------- */
+
 .search-row {
   display: flex;
   gap: 10px;
@@ -84,7 +84,7 @@ html, body {
 }
 .button:active { transform: translateY(1px); }
 
-/* ---------- Recipe ---------- */
+
 .recipe-header {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -94,22 +94,21 @@ html, body {
   .recipe-header { grid-template-columns: 1fr; }
 }
 
-/* ---------- Centered Recipe Image ---------- */
-/* Center recipe image container */
+
 .recipe-image-container {
   text-align: center;
   margin: 24px 0;
 }
 
-/* Recipe image styling */
+
 .recipe-image-container .recipe-img {
   max-width: 400px;
   width: 100%;
   height: auto;
   border-radius: 12px;
-  display: inline-block; /* ensures image respects text-align center */
+  display: inline-block; 
 }
-/* ---------- Recipe Image (legacy) ---------- */
+
 .recipe-img {
   width: 100%;
   max-width: 240px;
@@ -124,7 +123,7 @@ html, body {
   margin: 2px 0 0;
 }
 
-/* ---------- Lists / Tables ---------- */
+
 .section-title { margin: 24px 0 10px; }
 
 ul.clean {
@@ -156,11 +155,11 @@ ol.steps {
   background: rgba(99, 102, 241, 0.06);
 }
 
-/* ---------- Footer / Links ---------- */
+
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ---------- Helpers ---------- */
+
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -173,11 +172,11 @@ a:hover { text-decoration: underline; }
 .mt16 { margin-top: 16px; }
 .mt24 { margin-top: 24px; }
 
-/* ---------- Ingredients Grid ---------- */
+
 .ingredients-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px;   /* tighter gap */
+  gap: 12px;   
 }
 
 
@@ -188,19 +187,19 @@ a:hover { text-decoration: underline; }
   padding: 12px;
   text-align: center;
   box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-  max-width: 280px;   /* restricts card width */
-  margin: 0 auto;     /* centers cards */
+  max-width: 280px;   
+  margin: 0 auto;     
 }
 
 
 .ingredient-box p {
   margin: 8px 0 0;
-  font-size: 1rem;  /* smaller text */
+  font-size: 1rem; 
   color: var(--muted);
   font-weight: 600;
 }
 
-/* ---------- Recipe Selection Enhancements ---------- */
+
 .ingredient-box {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -213,7 +212,7 @@ a:hover { text-decoration: underline; }
 
 
 .ingredient-box img {
-  width: 200px;      /* smaller image */
+  width: 200px;      
   height: 200px;
   object-fit: cover;
   border-radius: 12px;
@@ -222,9 +221,9 @@ a:hover { text-decoration: underline; }
 }
 
 .ingredient-box img:hover {
-  transform: scale(1.1);   /* zooms in by 10% */
+  transform: scale(1.1);   
 }
-/* ----------- YouTube Video Section ----------- */
+
 .video-section {
   margin-top: 40px;
   text-align: left;
@@ -241,7 +240,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%; 
   height: 250px;
   overflow: hidden;
   border-radius: 12px;
